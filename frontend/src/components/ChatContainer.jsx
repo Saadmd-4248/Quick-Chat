@@ -90,7 +90,7 @@ const ChatContainer = () => {
   const renderMessage = (msg) => {
     if (msg.messageType === 'video' || msg.video) {
       return (
-        <div className="sm:w-[340px] w-[220px] rounded-lg overflow-hidden mb-8 border border-gray-700">
+        <div className="sm:w-85 w-55 rounded-lg overflow-hidden mb-8 border border-gray-700">
           <video
             controls
             className="w-full h-auto max-h-60 object-cover"
@@ -107,14 +107,14 @@ const ChatContainer = () => {
         <img
           src={msg.image}
           onClick={() => window.open(msg.image)}
-          className="sm:w-[280px] h-[350px] w-[220px] border cursor-pointer object-cover border-gray-700 rounded-lg overflow-hidden mb-8"
+          className="sm:w-70 h-87.5 w-55 border cursor-pointer object-cover border-gray-700 rounded-lg overflow-hidden mb-8"
           alt="Shared image"
         />
       );
     } else {
       return (
         <div>
-          <p className={`p-2 max-w-[200px] md:text-sm font-light rounded-lg mb-8 break-all bg-violet-600 text-white
+          <p className={`p-2 max-w-50 md:text-sm font-light rounded-lg mb-8 break-all bg-violet-600 text-white
             ${msg.senderId === authUser._id ? 'rounded-br-none' : 'rounded-bl-none'}`}>
             {msg.text}
           </p>
@@ -185,7 +185,7 @@ const ChatContainer = () => {
       <div className="px-2 absolute right-0 left-0">
         <div className="flex items-center rounded-full px-1 py-1 bg-violet-500/20 shadow-lg w-full border border-gray-700">
 
-          <div className="relative flex-shrink-0">
+          <div className="relative shrink-0">
             <button
               onClick={() => setShowUpload(prev => !prev)}
               className="text-white cursor-pointer p-2 hover:bg-gray-700 rounded-full"
@@ -233,7 +233,7 @@ const ChatContainer = () => {
           {/* Send Button */}
           <button
             onClick={isUploading ? undefined : handleSendMessage}
-            className="flex-shrink-0 w-9 h-9 ml-1"
+            className="shrink-0 w-9 h-9 ml-1"
           >
             <img
               src={assets.send_button}
